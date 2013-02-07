@@ -1,0 +1,34 @@
+web1: #component type & number
+  name: Zurmo            #component settings
+  before_deploy:
+      - "scripts/migrate_db.php"
+  shared_writable_dirs:
+    - var/cache
+    - var/sessions
+  document_root: app
+  php_version: 5.3.8
+  php_short_open_tag: "1"
+  php_date_timezone: "US/central"
+  php_post_max_size: "20M"
+  php_upload_max_filesize: "20M"
+  php_max_file_uploads: 20
+  php_extensions:
+    - mysql
+    - gd
+    - eaccelerator
+    - memcache
+    - pdo_mysql
+    - pdo
+    - curl
+    - soap
+    - apc
+    - imap
+     
+db1: #component type & number 
+  name: zurmo            #component settings
+  type: mysql
+
+ 
+cache1:
+  name: sessions
+  type: memcached
